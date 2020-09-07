@@ -29,7 +29,23 @@ public class AdicionaNome extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String curso = request.getParameter("curso");
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<body>");
+		out.println("Nome: " + nome);
+		out.println("<br />");
+		out.println("Email: " + email);
+		out.println("<br />");
+		out.println("Curso: " + curso);
+		out.println("<br />");
+		out.println("<p>");
+		out.println("Olá " + nome + " você está inscrito no curso " + curso + "!!!");
+		out.println("</p>");
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 	/**
@@ -39,15 +55,4 @@ public class AdicionaNome extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("nome");
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Nome: " + nome);
-		out.println("</body>");
-		out.println("</html>");
-	}
-
 }
